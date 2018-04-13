@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.shop.base.login.mapper.LoginMapper" >
+<resultMap id="BaseResultMap" type="cn.shop.base.login.entity.Login" >
+        <id column="loginid" property="loginId" jdbcType="VARCHAR" />
+        <result column="loginaccount" property="loginAccount" jdbcType="VARCHAR" />
+        <result column="pwd" property="pwd" jdbcType="VARCHAR" />
+        <result column="lastchangetime" property="lastChangeTime" jdbcType="DATE" />
+        <result column="userid" property="userId" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        loginaccount,loginid,pwd,lastchangetime,userid
+    </sql>
+    <select id="select" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from t_login
+        where loginaccount = #{loginAccount,jdbcType=VARCHAR} and pwd = #{pwd,jdbcType=VARCHAR}
+    </select>
+</mapper>

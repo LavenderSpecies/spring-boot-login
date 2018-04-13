@@ -1,3 +1,5 @@
+server:
+   port:10080
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/test
@@ -9,4 +11,5 @@ spring:
     
     
 mybatis:
-  mapper-location: classpath:mapper/*.xml
+  type-aliases-package: cn.shop.base.login.entity
+  mapper-locations: classpath:mapper/*.xml
